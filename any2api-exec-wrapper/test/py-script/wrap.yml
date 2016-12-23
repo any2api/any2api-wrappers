@@ -1,0 +1,18 @@
+title: My little script collection
+description: Just for testing
+
+operations:
+  run-my-script:
+    stream: out
+    async: false
+    parameters:
+      welcome-Message:
+        type: string
+        map_to:
+          target: env:WELCOME_MSG
+    results:
+      output-Messages:
+        type: string
+        map_from: stdout
+    commands:
+      invoke: python script.py
