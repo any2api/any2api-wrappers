@@ -1,0 +1,34 @@
+{
+  "name": "any2api-exec-wrapper",
+  "version": "1.0.0",
+  "description": "any2api wrapper implementation for local and remote command executions",
+  "scripts": {
+    "test": "WRAP_DIR=test/py-script API_DIR=test/out node build.js",
+    "build": "node build.js",
+    "start": "node wrapper.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/any2api/any2api-wrappers.git"
+  },
+  "keywords": [
+    "any2api",
+    "exec",
+    "wrapper",
+    "shell",
+    "ssh"
+  ],
+  "author": "Johannes Wettinger <mail@jojow.de>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/any2api/any2api-wrappers/issues"
+  },
+  "homepage": "https://medium.any2api.org",
+  "dependencies": {
+    "async": "^2.1.4",
+    "fs-extra": "^1.0.0",
+    "grpc": "^1.0.1",
+    "js-yaml": "^3.7.0",
+    "lodash": "^4.17.2"
+  }
+}
