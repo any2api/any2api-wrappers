@@ -46,7 +46,7 @@ mainProto = mainProto.concat([
   //'  bool start = 1;',
   '  map<string, string> env = 10;',
   '  string cwd = 11;',
-  '  string base_dir = 12;',
+  '  string basedir = 12;',
   '  string stdin = 13;',
   '  bool sudo = 14;',
   '  string sudo_user = 15;',
@@ -118,13 +118,13 @@ async.series([
 
         let paramsProto = mainProto;
 
+        let paramTagIndex = 1;
+
         if (op.stream === 'in' || op.stream === 'bi') {
           paramsProto = [
             'oneof input {',
           ];
         }
-
-        let paramTagIndex = 1;
 
         paramsProto.push(`  Config config = ${paramTagIndex++};`);
 
@@ -183,13 +183,15 @@ async.series([
 
           let resultsProto = mainProto;
 
+          let resultTagIndex = 2;
+
           if (op.stream === 'out' || op.stream === 'bi') {
             resultsProto = [
-              'oneof output {',
+              'bool final = 1;',
+              'oneof output {'
+              //`  repeated string finalized_results = ${resultTagIndex++};`
             ];
           }
-
-          let resultTagIndex = 1;
 
           _.forEach(op.results, (r, rName) => {
             const fieldName = _.snakeCase(rName);

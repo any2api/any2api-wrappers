@@ -4,14 +4,14 @@ description: Just for testing
 operations:
   run-my-script:
     stream: out
-    async: false
+    async: true
     parameters:
-      welcome-Message:
+      welcome-message:
         type: string
         map_to:
           target: env:WELCOME_MSG
     results:
-      output-Messages:
+      output-messages:
         type: string
         map_from: stdout
     commands:

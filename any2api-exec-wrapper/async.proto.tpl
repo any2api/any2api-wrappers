@@ -5,7 +5,7 @@ service Invocations {
   rpc CancelInvocation(CancelInvocationRequest) returns (Empty) {}
   rpc DeleteInvocation(DeleteInvocationRequest) returns (Empty) {}
 
-  // proactively pull result (using tail -f)
+  // proactively pull result (using tail -F)
   rpc GetResult(GetResultRequest) returns (GetResultResponse) {}
   // proactively pull result; stream remains open until result is complete
   rpc StreamResults(StreamResultsRequest) returns (stream StreamResultsResponse) {}
@@ -64,5 +64,5 @@ message StreamResultsRequest {
 
 // just include final results if no out stream or invocation done
 message StreamResultsResponse {
-  Any results = 1; // '<OperationName>Results' message
+  Any results = 1; // [OperationName]Results message
 }
