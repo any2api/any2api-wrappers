@@ -4,8 +4,8 @@
   "description": "any2api wrapper implementation for local and remote command executions",
   "scripts": {
     "test": "WRAP_DIR=test/py-script API_DIR=test/out node build.js",
-    "build": "node build.js",
-    "start": "node wrapper.js"
+    "wrap": "node wrap.js",
+    "start": "node start.js"
   },
   "repository": {
     "type": "git",
